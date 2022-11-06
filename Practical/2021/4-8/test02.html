@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test02</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#school",
+				data:{
+					school:{
+						name:"河南经贸职业学院",
+						add:"金水区龙子湖",
+						tag:"大专"
+					}
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="school">
+		<h4>{{school.name}}</h4>
+		<hr>
+		<p>{{school.tag}} {{school.add}}</p>
+	</div>
+</body>
+</html>

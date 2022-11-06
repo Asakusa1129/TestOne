@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+:root{
+	/**
+	 * 定义RGB颜色
+	 */
+	--white:rgb(255,255,255);
+	--black:rgb(0,0,0);
+	--blueness:rgb(160,238,225);
+	--green:rgb(190,237,199);
+	--grey:rgb(220, 222, 194);
+	--deepgrey:rgb(85,85,85);
+	--error:rgb(255,87,34);
+	--ghostwhite:rgb(240,248,255);
+}
+@font-face {
+	font-family: xinwei;
+	src: url(../font/xinwei.TTF);
+	
+}
+@font-face {
+	font-family: Source Cascadia;
+	src: url(../font/Source Cascadia.ttf);
+}
+@font-face {
+	font-family: Ubuntu-M;
+	src: url(../font/Ubuntu-M.ttf);
+}
+@font-face {
+	font-family: qweather-font;
+	src: url(../QWeather-Icons-1.1.1/font/fonts/qweather-icons.ttf);
+}

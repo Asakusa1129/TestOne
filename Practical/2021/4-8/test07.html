@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test07</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#test07",
+				methods:{
+					test:function () {
+						alert("测试成功。");
+					}
+					
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="test07">
+		<input type="button" value="测试v-on" v-on:click="test">
+		<input type="button" value="测试v-on" @click="test">
+		<input type="button" value="测试v-on" @mouseover="test">
+		<input type="button" value="测试v-on" @dblclick="test">
+	</div>
+</body>
+</html>

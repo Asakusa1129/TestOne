@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>3-1-2</title>
+		<style type="text/css">
+			div{
+				width: 60%;
+				height: 400px;
+				background-color: aqua;
+				position: relative;
+				left: 50%;
+				margin-left: -30%;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var mydiv=document.getElementsByTagName('div');
+				mydiv[0].addEventListener('touchstart',function(e){
+					this.style.backgroundColor="green";
+					this.innerHTML+="<br>触屏事件开始";
+				});
+				mydiv[0].addEventListener('touchmove',function(e){
+					this.innerHTML+="<br>触屏移动事件正在进行";
+				});
+				mydiv[0].addEventListener('touchend',function(e){
+					this.style.backgroundColor="aqua";
+					this.innerHTML+="<br>触屏事件结束";
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

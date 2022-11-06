@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test03</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#my",
+				data:{
+					name:"赵志远",
+					sex:"男",
+					age:20,
+					course:["JavaEE","JavaScript","Python"]
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="my">
+		<h2>{{name}}</h2>
+		<h3>{{'性别:'+sex}}</h3>
+		<h3>{{'年龄:'+age}}</h3>
+		<ul>学习课程
+			<li>{{course[0]}}</li>
+			<li>{{course[1]}}</li>
+			<li>{{course[2]}}</li>
+		</ul>
+	</div>
+</body>
+</html>

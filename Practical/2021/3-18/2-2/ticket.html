@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>票务</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			header nav{
+				height: 40px;
+				background-color: #333333;
+			}
+			header nav li{
+				float: left;
+				width: 25%;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+			}
+			header nav li:hover{
+				background-color: #000000;
+			}
+			header nav li a{
+				color: white;
+			}
+			header article img{
+				width: 100%;
+				height: 150px;
+			}
+			section{
+				width: 100%;
+				overflow: hidden;
+			}
+			section h4{
+				color: #FFA500;
+				margin-bottom: 10px;
+			}
+			section hr{
+				color: #FFA500;
+				border: dashed 1px;
+				margin-bottom: 10px;
+				width: 95%;
+			}
+			section form{
+				width: 100%;
+			}
+			section form .title{
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			section form .title span{
+				margin-left: 20px;
+				padding: 5px 10px 5px 10px;
+				border-radius: 10px;
+			}
+			section form span:nth-child(1){
+				background-color: #008000;
+			}
+			section form input[type="text"],input[type="datetime-local"]{
+				width: 95%;
+				height: 25px;
+				border-radius: 5px;
+				outline: none;
+			}
+			section form input[type="submit"]{
+				width: 100px;
+				height: 45px;
+				background-color: orangered;
+				color: white;
+				position: relative;
+				left: 50%;
+				margin-left: -40px;
+				outline: none;
+				border-radius: 10px;
+			}
+			footer{
+				height: 50px;
+				margin-top: 5px;
+				text-align: center;
+				font-size: 12px;
+				background-color: #333333;
+			}
+			footer p{
+				padding-top: 8px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var span1=document.getElementsByClassName("span1");
+				var span2=document.getElementsByClassName("span2");
+				span2[0].onclick=function(){
+					span2[0].style="background-color: #008000";
+					span1[0].style="background-color: #ffffff";
+				};
+				span1[0].onclick=function(){
+					span1[0].style="background-color: #008000";
+					span2[0].style="background-color: #ffffff";
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="information.html">咨讯</a></li>
+					<li><a href="ticket.html">票务</a></li>
+					<li><a href="about.html">关于</a></li>
+				</ul>
+			</nav>
+			<article>
+				<img src="../images/tour8.png" >
+			</article>
+		</header>
+		<section>
+			<h4>机票预定</h4>
+			<hr>
+			<form action="" method="post">
+				<p class="title">航程类型<span class="span1">单程</span><span class="span2">往返</span></p>
+				<p>出发城市</p>
+				<input type="text" placeholder="城市名" />
+				<p>返回城市</p>
+				<input type="text" placeholder="城市名" />
+				<p>出发时间</p>
+				<input type="datetime-local" placeholder="日期/时间" />
+				<p>返回时间</p>
+				<input type="datetime-local" placeholder="日期/时间" />
+				<input type="submit" value="订票"/>
+			</form>
+		</section>
+		<footer>
+			<p>客户端 | 触屏版 | 电脑版</p>
+			<p>实训2-2 | 19计算机2班 | 赵志远</p>
+		</footer>
+	</body>
+</html>

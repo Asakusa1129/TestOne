@@ -1,0 +1,385 @@
+@media screen and (max-width:640px) {
+	body {
+		background: ＃FFF5EE;
+		
+	}
+	.content{
+		width: 400px;
+		height: 500px;
+		background-image: url(../images/cat.gif);
+	}
+}
+/**
+ * 页面整体
+ */
+body {
+	width: 100%;
+	overflow-x: hidden;
+	/* background: url(../images/honeybee.jpg); */
+	/* background-attachment: fixed;
+	background-size: 100%; */
+}
+/**
+ * 头部区域
+ */
+#DOMTitle{
+	width: 100%;
+}
+
+header {
+	width: 80%;
+	position: relative;
+	left: 50%;
+	margin-left: -40%;
+	background-color: var(--grey);
+}
+
+header .header {
+	padding: 20px 0 10px 20px;
+}
+
+header .header h2 {
+	font-size: 28px;
+}
+
+header .header h5 {
+	margin: 10px 0 5px 0;
+	font-size: 14px;
+	font-family: xinwei;
+}
+
+nav {
+	width: 80%;
+	height: 26px;
+	position: relative;
+	left: 50%;
+	margin-left: -40%;
+	border-top: 1px #999 dotted;
+	border-bottom: 1px #999 dotted;
+	background-color: var(--green);
+	opacity: 0.8;
+}
+nav .nav{
+	padding-left: 1%;
+}
+
+.nav ul {
+	width: 50%;
+	height: 26px;
+	margin-left: 5px;
+}
+
+.nav li {
+	margin-right: 8%;
+	line-height: 26px;
+	float: left;
+	font-family: Source Cascadia;
+}
+
+.nav a {
+	color: var(--deepgrey);
+	transition: all 0.5s;
+}
+
+.nav li:nth-child(1) {
+	font-weight: 700;
+}
+
+nav a:hover {
+	color: var(--black);
+}
+/**
+ * 主体区域
+ */
+#DOMContent{
+	width: 100%;
+}
+
+section {
+	width: 80%;
+	position: relative;
+	left: 50%;
+	margin-left: -40%;
+	background-color: var(--white);
+}
+/**
+ * 左侧-侧边栏区域
+ */
+aside {
+	width: 14%;
+	text-align: center;
+	float: left;
+}
+
+figure{
+	padding-top: 12px;
+	background-image: linear-gradient(var(--green),var(--white));
+	border-top-right-radius: 12%;
+	opacity: 0.8;
+}
+
+figure figcaption{
+	font-weight: bold;
+	font-family: Source Cascadia;
+}
+
+figure ul {
+	width: 100%;
+	font-family: Ubuntu-M;
+}
+
+figure ul li {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	transition: all 0.8s;
+}
+
+figure ul li:hover {
+	background-color: var(--grey);
+}
+
+figure a {
+	color: var(--black);
+}
+/**
+ * 分隔区域
+ */
+.join{
+	width: 100%;
+}
+.join p{
+	cursor: pointer;
+	font-weight: bold;
+	color: var(--deepgrey);
+	border-top: var(--grey) 1px solid;
+	border-bottom: var(--grey) 1px dashed;
+	background:-webkit-linear-gradient(left,var(--grey), var(--deepgrey));
+	transition: all 3s;
+}
+.join p:hover{
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top: var(--grey) 1px dotted;
+	transform: translate(25px,0);
+}
+.join img{
+	cursor: pointer;
+	width: 100%;
+	height: 170px;
+	margin-top: 2px;
+	border-radius: 10px;
+	transition: all 2s;
+}
+.join img:hover{
+	border-radius: 50%;
+}
+.join input[type="button"]{
+	margin-top: 10px;
+	cursor: pointer;
+	width: 120px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	outline: none;
+	color: var(--deepgrey);
+	background-color: var(--grey);
+	border: dashed 1px;
+	border-radius: 10px;
+	transition: all 2s;
+}
+.join input[type="button"]:hover{
+	color: var(--black);
+	border-radius: 5px;
+}
+/**
+ * 右侧-主体内容区域（使用弹性盒子实现）
+ */
+.content {
+	width: 86%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+/**
+ * 主体内容头部
+ */
+.content-top {
+	width: 100%;
+	height: 42px;
+	background-image: -webkit-linear-gradient(left, #f5f5f5, #f1f4d4);
+	display: flex;
+	justify-content: flex-end;
+}
+
+.content-top .weather{
+	height: 100%;
+	font-family: qweather-font;
+	font-weight: bold;
+}
+
+#weathericon{
+	padding:0 20px 0 4px;
+	font-size: 30px;
+}
+
+.content-top .time {
+	height: 100%;
+	margin-right: 5px;
+}
+
+.content-top #showtime {
+	color: var(--deepgrey);
+	font-size: 16px;
+	transition: all 1s;
+	font-family: Ubuntu-M;
+}
+
+.content-top #showtime:hover {
+	color: var(--black);
+	cursor: pointer;
+}
+/**
+ * 主体内容正文主体
+ */
+.content-center {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+/**
+ * 主体内容正文主体左侧-文段区域
+ */
+.content-center-left {
+	width: 40%;
+}
+
+.content-center-left .poem{
+	text-align: center;
+	font-family: 华文中宋;
+	font-weight: bold;
+	color: var(--deepgrey);
+	cursor: pointer;
+}
+
+.content-center-left .poem-body{
+	font-size: 20px;
+	margin-top: 8px;
+}
+
+.content-center-left .poem-body p{
+	margin-top: 5px;
+}
+
+.content-center-left .changepage {
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.changepage input[type="button"] {
+	width: 100px;
+	height: 30px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--white);
+	font-size: 16px;
+	font-weight: bold;
+	transition: all 1s;
+}
+.changepage input[type="button"]:hover{
+	background-color: var(--grey);
+	border: #333 solid 1px;
+}
+
+/**
+ * 主体内容正文主体右侧-轮播图区域
+ */
+.content-center-right {
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.content-center-right .carousel {
+	width: 100%;
+	height: 360px;
+	position: relative;
+}
+
+.carousel .imgs {
+	width: 100%;
+	height: 100%;
+}
+
+.carousel .imgs .img {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.carousel .imgs .thisimg {
+	display: block;
+}
+
+.carousel img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+
+.carousel .lists {
+	width: 38%;
+	height: 10px;
+	position: absolute;
+	left: 50%;
+	margin-left: -19%;
+	bottom: 8px;
+}
+
+.carousel .lists .li {
+	width: 8px;
+	height: 8px;
+	float: left;
+	background-color: var(--green);
+	border-radius: 50%;
+	margin-right:10px;
+}
+
+.carousel .lists .thisli {
+	width: 6px;
+	height: 6px;
+	background-color: transparent;
+	border: var(--green) 2px solid;
+}
+
+#DOMFooter{
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	bottom: 0px;
+	background-color: var(--deepgrey);
+	text-align: center;
+	color: var(--grey);
+	font-size: 12px;
+}
+
+#DOMFooter hr{
+	height: 5px;
+	border: none;
+	background-image: linear-gradient(to right,var(--grey), var(--deepgrey), var(--grey));
+}
+
+#DOMFooter a{
+	color: var(--grey);
+}
+
+.link-list{
+	display: flex;
+	justify-content: space-around;
+	width: 400px;
+	margin: auto;
+}

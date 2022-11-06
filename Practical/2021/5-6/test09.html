@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test09</title>
+	<script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-if="isShow" ref="self">{{msg}}</p>
+		<input type="button" @click="isShow=!isShow" value="更新">
+	</div>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				msg:'张三',
+				isShow:false
+			},
+			beforeUpdate(){
+				console.log("更新之前。");
+				console.log(this.$refs.self);
+			},
+			updated(){
+				console.log("更新之后。");
+				console.log(this.$refs.self);
+			}
+		});
+	</script>
+</body>
+</html>

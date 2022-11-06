@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>工具2</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<script src="../../layui/layui.js"></script>
+		<style>
+			li{
+				list-style-type: disc;
+			}
+			.titleLis{
+				width: 160px;
+				height: 36px;
+				line-height: 36px;
+				list-style: none;
+				float: left;
+				text-align: center;
+				background-color: var(--grey);
+				transition: all .8s;
+				cursor: pointer;
+			}
+			.titleLis:hover{
+				background-color: var(--white);
+			}
+			.bodyLis{
+				width: 100%;
+				text-align: center;
+				font-size: 24px;
+				font-weight: bold;
+				display: none;
+			}
+			#picDiv{
+				text-align: center;
+				position: relative;
+			}
+			#picShow{
+				width: 90%;
+				height: 420px;
+				transition: all 1s;
+			}
+			#picNode{
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+				margin-left: -100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+		  <legend>工具2</legend>
+		</fieldset>
+		<div id="utilsSecond" class="layui-row">
+			<blockquote class="layui-elem-quote">
+				<form class="layui-form" id="utilsFormSecond">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">随机星:</label>
+							<div class="layui-input-inline">
+								<button id="getStar" type="button" class="layui-btn layui-btn-normal">生成</button>
+								<button id="disStar" type="button" class="layui-btn layui-btn-normal">隐藏</button>
+							</div>
+						</div>
+						
+						<div class="layui-inline">
+							<label class="layui-form-label">平均成绩:</label>
+							<div class="layui-input-inline">
+								<input id="score" class="layui-input" placeholder="建议空格或逗号分隔" autocomplete="off" />
+							</div>
+							<div class="layui-input-inline">
+								<button id="getAve" class="layui-btn layui-btn-normal" type="button">计算</button>
+							</div>
+						</div>
+						
+						<div class="layui-inline">
+							<label class="layui-form-label">更换头像:</label>
+							<div class="layui-input-inline" style="width: 100px;" >
+								<select id="img" lay-filter="img"></select>
+							</div>
+							<img id="showImg" class="layadmin-homepage-pad-img" src="images/image1.gif" style="border-radius: 50%;border: 1px solid #999;" alt="头像">
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">对象:</label>
+							<div class="layui-input-inline" style="width: 60px;">
+								<input id="name" class="layui-input" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" maxlength="12" placeholder="名字" />
+							</div>
+							<div class="layui-input-inline" style="width: 60px;">
+								<input id="age" class="layui-input" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="3" placeholder="年龄" />
+							</div>
+							<div class="layui-input-inline" style="width: 60px;">
+								<button id="create" class="layui-btn layui-btn-normal" type="button">创建</button>
+							</div>
+						</div>
+						
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="go" class="layui-btn layui-btn-normal" type="button">抽个奖</button>
+							</div>
+						</div>
+						
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 90px;">
+								<button id="addNode" class="layui-btn layui-btn-normal" type="button">添加节点</button>
+							</div>
+							<div class="layui-input-inline" style="width: 120px;">
+								<button id="getNode" class="layui-btn layui-btn-normal" type="button">获取节点信息</button>
+							</div>
+							<div class="layui-input-inline">
+								<ul id="nodeList"></ul>
+							</div>
+							<div class="layui-input-inline" style="width: 85px;">
+								<button id="delNode" class="layui-btn layui-btn-normal" type="button">删除节点→</button>
+							</div>
+							<div class="layui-input-inline" style="width: 40px;">
+								<input id="nodeOfDel" type="text" class="layui-input" autocomplete="off" value="all">
+							</div>
+						</div>
+						
+						<div class="layui-inline">
+							<label class="layui-form-label">每日菜单:</label>
+							<div class="layui-input-inline" style="width: 85px;">
+								<button id="getMenu" class="layui-btn layui-btn-normal" type="button">获取</button>
+							</div>
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">图片:</label>
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="picture" class="layui-btn layui-btn-normal" type="button">打开</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">计算器:</label>
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="calculator" class="layui-btn layui-btn-normal" type="button">打开</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="mouseShow" class="layui-btn layui-btn-normal" type="button">出现</button>
+							</div>
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="mouseDisplay" class="layui-btn layui-btn-normal" type="button">隐藏</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="move" class="layui-btn layui-btn-normal" type="button">移动方块</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<input id="number" class="layui-input" placeholder="输入号码" autocomplete="off" />
+							</div>
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="check" class="layui-btn layui-btn-normal" type="button">验证</button>
+							</div>
+						</div>
+						
+					</div>
+				</form>
+				
+				<form id="normalForm" action="test.html" class="layui-form" method="post" style="float: left;">
+					<div class="layui-input-inline" style="width: 120px;">
+						<button id="normalSub" class="layui-btn layui-btn-normal" type="button">普通按钮</button>
+					</div>
+				</form>
+				<form onsubmit="return toSubmit()" action="test.html" class="layui-form" method="post">
+					<div class="layui-input-inline" style="width: 120px;">
+						<button class="layui-btn layui-btn-normal" type="submit">提交按钮</button>
+					</div>
+				</form>
+				
+				<form class="layui-form">
+					<div class="layui-form-item" style="margin-top: 15px;">
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="register" class="layui-btn layui-btn-normal" type="button">注册模板</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">下拉框联动:</label>
+							<div class="layui-input-inline" style="width: 80px;">
+								<select class="layui-select" lay-filter="province" id="province">
+									<option value="">省份</option>
+								</select>
+							</div>
+							<div class="layui-input-inline" style="width: 80px;">
+								<select class="layui-select" lay-filter="city" id="city">
+									<option value="">城市</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="openNewWindow" class="layui-btn layui-btn-normal" type="button">打开新窗口</button>
+							</div>
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="closeNewWindow" class="layui-btn layui-btn-normal" type="button">关闭窗口</button>
+							</div>
+							<div class="layui-input-inline" style="width: 120px;">
+								<button id="windowIsClose" class="layui-btn layui-btn-normal" type="button">窗口是否关闭</button>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<input id="pageTitle" class="layui-input" placeholder="网页标题内容(建议长些)" autocomplete="off" />
+							</div>
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="startCarousel" class="layui-btn layui-btn-normal" type="button">轮播标题</button>
+							</div>
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="stopCarousel" class="layui-btn layui-btn-normal" type="button">恢复</button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item" style="margin-top: 15px;">
+						<div class="layui-inline">
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="goNewPage" class="layui-btn layui-btn-normal" type="button">跳转页面</button>
+							</div>
+							<div class="layui-input-inline" style="width: 120px;">
+								<button id="goBack" class="layui-btn layui-btn-normal" type="button">回到之前页面</button>
+							</div>
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="aboutDOM" class="layui-btn layui-btn-normal" type="button">页面操作</button>
+							</div>
+							
+							<label class="layui-form-label">JQuery方法:</label>
+							<div class="layui-input-inline" style="width: 60px;">
+								<button id="showPanel" class="layui-btn layui-btn-normal" type="button">显示</button>
+							</div>
+							<div class="layui-input-inline" style="width: 60px;">
+								<button id="hidePanel" class="layui-btn layui-btn-normal" type="button">隐藏</button>
+							</div>
+							<div class="layui-input-inline" style="width: 90px;">
+								<button id="toggle" class="layui-btn layui-btn-normal" type="button">同时实现</button>
+							</div>
+							<span id="panel" style="font-weight: bold;display: none;">一寸光阴一寸金，因此，建议您时刻保持学习。</span>
+							
+							<div class="layui-input-inline" style="width: 60px;">
+								<button id="pullMenu" class="layui-btn layui-btn-normal" type="button">菜单</button>
+							</div>
+							
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="table" class="layui-btn layui-btn-normal" type="button">表格</button>
+							</div>
+							<div class="layui-input-inline" style="width: 100px;">
+								<button id="jqChose" class="layui-btn layui-btn-normal" type="button">JQ选择器</button>
+							</div>
+							
+							<div class="layui-input-inline" style="width: 80px;">
+								<input id="text" class="layui-input" placeholder="文本" autocomplete="off" />
+							</div>
+							<div class="layui-input-inline" style="width: 80px;">
+								<input id="word" class="layui-input" placeholder="敏感词" autocomplete="off" />
+							</div>
+							<div class="layui-input-inline" style="width: 80px;">
+								<button id="filter" class="layui-btn layui-btn-normal" type="button">过滤</button>
+							</div>
+							
+						</div>
+					</div>
+					
+				</form>
+				
+			</blockquote>
+		</div>
+		
+		
+		<div id="starDiv" style="display: none;">
+			<img id="imgstar" src="images/star.png" style="width: 60px;" >
+		</div>
+		
+		<div id="raffleDiv" style="display: none;text-align: center;">
+			<h1 style="font-weight: bold;">欢迎来到抽奖界面</h1>
+			<img id="raffleImage" style="width: 195px;height: 195px;" src="images/star.png"/>
+			<h2 id="raffleMsg" style="margin: 20px 0;">请开始抽奖</h2>
+			<div class="layui-input-inline">
+				<button id="begin" class="layui-btn layui-btn-normal" type="button">开始</button>
+			</div>
+		</div>
+		
+		<div id="nodeDiv" style="display: none;margin-left: 20px;">
+			<sapn>ul的子节点：</sapn>
+			<sapn id="ulNode"></sapn>
+			<br>
+			<sapn>ul子节点的个数：</sapn>
+			<sapn id="ulNodeLen"></sapn>
+			<br>
+			<sapn>子节点的类型：</sapn>
+			<sapn id="ulNodeType"></sapn>
+		</div>
+		
+		<div id="menuDiv" style="display: none;">
+			<div id="menu">
+				<div class="menuTiele">
+					<ul id="titleLi">
+						<li class="titleLis">早饭</li>
+						<li class="titleLis">午饭</li>
+						<li class="titleLis">晚饭</li>
+					</ul>
+				</div>
+				<div class="menuBody">
+					<ul class="bodyLi">
+						<div class="bodyLis">包子</div>
+						<div class="bodyLis">卤面、米饭</div>
+						<div class="bodyLis">煎饺</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="pictureDiv" style="display: none;">
+			<div id="picDiv">
+				<img src="images/15001.jpg" id="picShow">
+				<ul id="picNode"></ul>
+			</div>
+		</div>
+		
+		<div id="calculatorDiv" style="display: none;text-align: center;">
+			<div class="layui-inline" style="margin-top: 5px;">
+				<div class="layui-input-inline" style="width: 49%;">
+					<input id="num1" type="text" class="layui-input" autocomplete="off" placeholder="数字一">
+				</div>
+				<div class="layui-input-inline" style="width: 49%;">
+					<input id="num2" type="text" class="layui-input" autocomplete="off" placeholder="数字二">
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 5px;">
+				<div class="layui-input-inline">
+					<button class="layui-btn layui-btn-normal" type="button" id="calAdd">+</button>
+					<button class="layui-btn layui-btn-normal" type="button" id="calSub">-</button>
+					<button class="layui-btn layui-btn-normal" type="button" id="calMul">*</button>
+					<button class="layui-btn layui-btn-normal" type="button" id="calDiv">/</button>
+					<button class="layui-btn layui-btn-normal" type="button" id="calClo">**</button>
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 10px;width: 100%;">
+				<p id="result" style="font-size: 20px;font-weight: bold;"></p>
+			</div>
+		</div>
+		<div id="mouseDiv" style="display: none;position: absolute;width: 15px;height: 15px;border-radius: 50%;"></div>
+		<div id="moveDiv" style="display: none;position: absolute;width: 50px;height: 50px;border-radius: 3px;"></div>
+		
+		<div id="registerDiv" style="display: none;margin-top: 40px;">
+			<div class="layui-inline" style="margin-top: 10px;width: 100%;">
+				<label class="layui-form-label">用户名:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" id="userName" type="text" placeholder="输入用户名" style="width: 240px;" autocomplete="off" />
+					<span id="userNameTag" style="font-size:12px;color: var(--error);display: none;">请输入你的用户名</span>
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 10px;width: 100%;">
+				<label class="layui-form-label">账号:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" id="userNum" type="text" placeholder="输入账号" style="width: 240px;" autocomplete="off" />
+					<span id="userNumTag" style="font-size:12px;color: var(--error);display: none;">请输入你的账号</span>
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 10px;width: 100%;">
+				<label class="layui-form-label">密码:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" id="userPwd" type="password" placeholder="输入密码" style="width: 240px;" autocomplete="off" />
+					<span id="userPwdTag" style="font-size:12px;color: var(--error);display: none;">请输入你的密码</span>
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 10px;width: 100%;">
+				<label class="layui-form-label">密码:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" id="userPwdAg" type="password" placeholder="再次输入密码" style="width: 240px;" autocomplete="off" />
+					<span id="userPwdAgTag" style="font-size:12px;color: var(--error);display: none;">请输入你的密码</span>
+					<span id="defPwdAgTag" style="font-size:12px;color: var(--error);display: none;">与第一次密码不符</span>
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-top: 20px;width: 100%;text-align: center;">
+				<div class="layui-input-inline">
+					<button class="layui-btn layui-btn-fluid layui-btn-normal" type="button" style="width: 120px;">注册</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="domDiv" style="display: none;">
+			<div class="layui-inline">
+				<label class="layui-form-label">页面刷新:</label>
+				<label class="layui-form-label" style="width: 170px;font-weight: bold;">window.location.reload(true);</label>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">转到新页面:</label>
+				<label class="layui-form-label" style="width: 170px;font-weight: bold;">window.location="网址";</label>
+				<label class="layui-form-label" style="width: 170px;font-weight: bold;">window.location.href="网址";</label>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">替换新页面:</label>
+				<label class="layui-form-label" style="width: 170px;font-weight: bold;">window.location.replace("网址");</label>
+			</div>
+		</div>
+		
+		<div id="pullMenuDiv" style="display: none;text-align: center;">
+			<div class="layui-inline" style="width: 30%;">
+				<h3 class="pullMenuTitle" style="background-color: var(--deepgrey);">主菜单1</h3>
+				<ul class="pullMenuBody">
+					<li>操作一</li>
+					<li>操作二</li>
+					<li>操作三</li>
+					<li>操作四</li>
+				</ul>
+			</div>
+			<div class="layui-inline" style="width: 30%;">
+				<h3 class="pullMenuTitle" style="background-color: var(--deepgrey);">主菜单2</h3>
+				<ul class="pullMenuBody">
+					<li>操作一</li>
+					<li>操作二</li>
+					<li>操作三</li>
+					<li>操作四</li>
+				</ul>
+			</div>
+			<div class="layui-inline" style="width: 30%;">
+				<h3 class="pullMenuTitle" style="background-color: var(--deepgrey);">主菜单3</h3>
+				<ul class="pullMenuBody">
+					<li>操作一</li>
+					<li>操作二</li>
+					<li>操作三</li>
+					<li>操作四</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="tableDiv" style="display: none;padding: 20px 0 0 30px">
+			<div class="layui-inline" style="width: 100%;">
+				<div class="layui-input-inline">
+					<button id="createTab" class="layui-btn layui-btn-fluid layui-btn-normal" type="button"">生成表格</button>
+				</div>
+				<div class="layui-input-inline">
+					<button id="addTabLine" class="layui-btn layui-btn-fluid layui-btn-normal" type="button"">加一行</button>
+				</div>
+				<div class="layui-input-inline">
+					<button id="delTabLine" class="layui-btn layui-btn-fluid layui-btn-normal" type="button"">减一行</button>
+				</div>
+			</div>
+			<div id="showTab" class="layui-inline" style="width: 100%;margin-top: 20px;"></div>
+		</div>
+		
+		<div id="choseDiv" style="display: none;">
+			<div class="layui-inline" style="width: 100%;margin-top: 10px;">
+				<label class="layui-form-label">常规选择:</label>
+				<span style="font-weight: bold;width: 80%;">$("#标签id属性名")、$(".标签class属性名")、$("父元素>子元素")</span>
+			</div>
+			<div class="layui-inline" style="width: 100%;margin-top: 10px;">
+				<label class="layui-form-label">条件选择:</label>
+				<span style="font-weight: bold;width: 80%;">$("元素:contains(标签内含有的值)")、$("元素:empty")[标签为空]、$("元素:has(含有的属性名)")</span>
+			</div>
+			<div class="layui-inline" style="width: 100%;margin-top: 10px;">
+				<label class="layui-form-label">其他:</label>
+				<span style="font-weight: bold;width: 80%;">$("元素:parent")、$("元素:first-child")、$("元素:last-child")、$("元素:only-child")[只有一个该元素]、$("元素:nth-child(序号)")</span>
+			</div>
+			<div class="layui-inline" style="width: 100%;margin-top: 10px;">
+				<label class="layui-form-label">其他:</label>
+				<span style="font-weight: bold;width: 80%;">$("元素:even")[奇数位]、$("元素:odd")[偶数位]、$("元素:visible")[显示的元素]、$("元素:hidden")[隐藏的元素]</span>
+			</div>
+			<div class="layui-inline" style="width: 100%;margin-top: 10px;">
+				<label class="layui-form-label">其他:</label>
+				<span style="font-weight: bold;width: 80%;">$("元素:[name]")[含有name属性的该元素]、$("元素:[name='值']")、$("元素:[name!='值']")、$("元素:[name^='值']")、$("元素:[name*='值']")、$("元素:[name$='值']")</span>
+			</div>
+		</div>
+	</body>
+	<script src="js/util2.js"></script>
+</html>

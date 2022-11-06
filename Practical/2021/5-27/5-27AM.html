@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5-27</title>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+</head>
+<body>
+	
+	<div id="app">
+		<router-link to="stuname">姓名</router-link>
+		<router-link to="stuid">学号</router-link>
+		<router-view></router-view>
+	</div>
+	<script>
+		var stuname={
+			template:"<div><h1>赵志远</h1></div>",
+		}
+		var stuid={
+			template:"<div><h1>68</h1></div>",
+		}
+		var router=new VueRouter({
+			routes:[
+					{path:"/",redirect:"/stuname"},
+					{path:"/stuname",component:stuname},
+					{path:"/stuid",component:stuid}
+				]
+			})
+		new Vue({
+			el:"#app",
+			router:router
+		});
+	</script>
+</body>
+</html>

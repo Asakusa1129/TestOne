@@ -1,0 +1,29 @@
+@media screen and (max-width:640px) {
+	
+}
+
+.layui-logo {
+	height: 80px;
+	font-family: 华文中宋;
+	margin-left: 50px;
+	font-size: 24px!important;
+	font-weight: bold!important;
+	color: var(--white)!important;
+}
+
+.layui-nav .layui-icon{
+	font-size: 20px!important;
+	margin-right: 5px;
+	padding-top: 2px;
+}
+
+.layui-panel{
+	padding: 16px;
+	margin: 50px 0 0 12px;
+	border-color: var(--grey)!important;
+}
+
+#showOtherHtml{
+	width: 100%;
+	height: 100%;
+}

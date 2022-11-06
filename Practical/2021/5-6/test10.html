@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test10</title>
+	<script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p ref="self">{{msg}}</p>
+	</div>
+	<script>
+		var v=new Vue({
+			el:'#app',
+			data:{
+				msg:'张三'
+			},
+			beforeDestroy(){
+				console.log("销毁之前。");
+				console.log("this.$refs.self:"+this.$refs.self);
+				console.log("this.msg:"+this.msg)
+				console.log(v)
+			},
+			destroyed(){
+				console.log("销毁之后。");
+				console.log("this.$refs.self:"+this.$refs.self);
+				console.log("this.msg:"+this.msg)
+				console.log(v)
+			}
+		});
+	</script>
+</body>
+</html>

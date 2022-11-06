@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test06</title>
+	<script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <style>
+    	*{
+    		list-style: none;
+    		padding: 0;
+    		margin: 0;
+    	}
+    	#app{
+    		width: 100%;
+    		text-align: center;
+    		padding-top: 20px;
+    	}
+    	h1{
+    		color: green;
+    		margin-bottom: 20px;
+    	}
+    	input[type="text"]{
+    		width: 55%;
+    		height: 20px;
+    	}
+    	input[type="button"]{
+    		width: 5%;
+    		height: 25px;
+    		background-color: green;
+    	}
+    	.city{
+    		margin: 10px 0 10px 0;
+    	}
+    	.city span{
+    		cursor: pointer;
+    		font-size: 22px;
+    	}
+    	.city span:hover{
+    		background-color: green;
+    		color: white;
+    	}
+    	ul{
+    		display: flex;
+    		width: 60%;
+    		height: 120px;
+    		margin: auto;
+    	}
+    	ul>li{
+    		width: 20%;
+    		height: 100%;
+    		border-right: 1px #333 solid;
+    	}
+    	ul>li:nth-child(1){
+    		background-color: pink;
+    	}
+    	ul>li:nth-child(5){
+    		border-right: none;
+    	}
+    	ul>li p:nth-child(1){
+    		font-size: 25px;
+    		font-weight: bold;
+    		margin: 10px 0 10px 0;
+    	}
+    </style>
+</head>
+<body>
+	<div id="app">
+		<h1>天气查询</h1>
+		<input type="text" v-model="cityname">
+		<input type="button" value="查询" @click="chaxun()">
+		<p class="city">
+			<span @click="chaxun1('北京')">北京</span>
+			<span @click="chaxun1('上海')">上海</span>
+			<span @click="chaxun1('广州')">广州</span>
+			<span @click="chaxun1('')">空</span>
+		</p>
+		<ul>
+			<li v-for="i in list">
+				<p>{{i.type}}</p>
+				<p>{{i.low}} -- {{i.high}}</p>
+				<p>{{i.date}}</p>
+			</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				cityname:'北京',
+				list:[]
+			},
+			methods:{
+				chaxun:function(){
+					axios.get("http://wthrcdn.etouch.cn/weather_mini?city="+this.cityname).then(
+					response=>{
+						this.list=response.data.data.forecast;
+						console.log(response);
+					},err=>{
+						console.log(err);
+						}
+					);
+				},
+				chaxun1:function(value){
+					this.cityname=value;
+					this.chaxun();
+				}
+			},
+			mounted:function(){
+				this.chaxun();
+			}
+		});
+	</script>
+</body>
+</html>

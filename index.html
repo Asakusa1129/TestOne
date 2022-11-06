@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>主页</title>
+		<link rel="icon" type="image/x-icon" href="images/tabicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="QWeather-Icons-1.1.1/font/qweather-icons.css" />
+		<script src="js/index.js"></script>
+		<script src="js/useother/jquery.js"></script>
+		<script src="js/useother/axios.min.js"></script>
+	</head>
+	<body>
+		
+		<article id="DOMTitle">
+			<header>
+				<div class="header">
+					<h2>asakusa_z</h2>
+					<h5>落霞与孤鹜齐飞，秋水共长天一色。</h5>
+				</div>
+			</header>
+			<nav>
+				<div class="nav">
+					<ul>
+						<li><a href="index.html" title="首页">首页</a></li>
+						<li><a href="page/MyPractical.html" title="我的实训">实训内容</a></li>
+						<li><a href="page/coding.html" title="相册">相册</a></li>
+						<!-- <li><a href="Practical/2020/carousel.html" title="轮播图">轮播图</a></li> -->
+					</ul>
+				</div>
+			</nav>
+		</article>
+		
+		<article id="DOMContent">
+			<section>
+				<aside>
+					<figure>
+						<figcaption>学习区域</figcaption>
+						<ul>
+							<li><a href="https://github.com/" target="_blank">Github</a></li>
+							<li><a href="https://gitee.com/" target="_blank">Gitee</a></li>
+							<li><a href="https://www.w3school.com.cn/" target="_blank">W3shool</a></li>
+							<li><a href="https://www.mldn.cn/" target="_blank">魔乐学堂</a></li>
+							<li><a href="https://leetcode.cn/" target="_blank">力扣</a></li>
+							<li><a href="https://www.nowcoder.com/" target="_blank">牛客</a></li>
+							<li><a href="https://www.icourse163.org/" target="_blank">大学mooc</a></li>
+							<li><a href="https://edu.51cto.com/" target="_blank">51CTO学院</a></li>
+						</ul>
+					</figure>
+					
+					<div class="join" style="float: left;">
+						<p>这里是分隔区域</p>
+						<img src="images/first_pic.gif" >
+						<input type="button" value="旋转图片" />
+					</div>
+				</aside>
+				
+				<div class="content">
+					<div class="content-top">
+						<div class="weather">
+							<p id="address"></p>
+							<p id="showweather"></p>
+						</div>
+						<i id="weathericon"></i>
+						<div class="time">
+							<p id="showtime"></p>
+						</div>
+					</div>
+			
+					<div class="content-center">
+						<div class="content-center-left">
+							<div class="poem">
+								<h2 class="poem-title"></h2>
+								<h4 class="poem-writer"></h4>
+								<div class="poem-body"></div>
+							</div>
+							<div class="changepage">
+								<input id="poemLast" type="button" value="切上篇" />
+								<input id="poemNext" type="button" value="切下篇" />
+							</div>
+						</div>
+			
+						<div class="content-center-right">
+							<div class="carousel">
+								<ul class="imgs">
+									<li class="img thisimg"><img src="./images/photo1.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo2.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo3.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo4.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo5.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo6.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo7.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo8.jpg" alt=""></li>
+									<li class="img"><img src="./images/photo9.jpg" alt=""></li>
+								</ul>
+								<ul class="lists">
+									<li class="li thisli"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+									<li class="li"></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</article>
+		
+		<footer id="DOMFooter">
+			<hr>
+			2022 asakusa_z
+			&nbsp;&nbsp;&nbsp;链接：
+			<ul class="link-list">
+				<li>
+					<a href="https://www.cnblogs.com/" target="_blank">博客园</a>
+				</li>
+				<li>
+					<a href="https://gitcode.net/explore" target="_blank">GitCode</a>
+				</li>
+				<li>
+					<a href="https://www.bootcdn.cn/" target="_blank">BootCDN</a>
+				</li>
+				<li>
+					<a href="https://codepen.io/" target="_blank">codepen</a>
+				</li>
+				<li>
+					<a href="http://www.cxy521.com/" target="_blank">程序员521</a>
+				</li>
+				<li>
+					<a href="https://developer.aliyun.com/" target="_blank">aliyun开发社区</a>
+				</li>
+			</ul>
+		</footer>
+	</body>
+</html>

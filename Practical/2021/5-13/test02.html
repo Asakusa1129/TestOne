@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test02</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<child-component></child-component>
+	</div>
+	<script>
+		var child={
+			template:"<h3>我是vm实例中的局部组件</h3>"
+		}
+		var vm=new Vue({
+			el:"#app",
+			components:{
+				"child-component":child
+			}
+		});
+	</script>
+</body>
+</html>

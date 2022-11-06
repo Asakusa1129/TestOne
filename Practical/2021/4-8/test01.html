@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test01</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#app",
+				data:{
+					message:"Hello World"
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{message}}</h1>
+	</div>
+</body>
+</html>

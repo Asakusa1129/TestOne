@@ -1,0 +1,41 @@
+{
+	"leftMenu": [
+		{
+			"title": "工具1",
+			"icon": "icon-text",
+			"href": "../Practical/2020/util1.html",
+			"haveChild": false
+		},
+		{
+			"title": "工具2",
+			"icon": "icon-text",
+			"href": "../Practical/2020/util2.html",
+			"haveChild": false
+		},
+		{
+			"title": "工具3",
+			"icon": "icon-text",
+			"href": "page/coding.html",
+			"haveChild": false
+		},
+		{
+			"title": "其他",
+			"icon": "&#xe630;",
+			"haveChild": true,
+			"children": [
+				{
+					"title": "初识前端",
+					"icon": "icon-text",
+					"href": "../page/html5.html",
+					"haveChild": false
+				},
+				{
+					"title": "轮播图",
+					"icon": "&#xe61c;",
+					"href": "../Practical/2020/carousel.html",
+					"spread": false
+				}
+			]
+		}
+	]
+}

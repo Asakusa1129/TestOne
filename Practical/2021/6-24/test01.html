@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <link rel="stylesheet" href="./css/test01.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>用Vue添加你的爱好</h2>
+        <div class="main">
+            <input type="text" placeholder="添加你的爱好……" v-model="hobby">
+            <button @click="addHobby()">√</button>
+            <ul>
+                <li v-for="i in hobbys">{{i}}</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                hobbys:['Vue','Java','Python']
+            },
+            methods:{
+                addHobby(){
+                    if(this.hobby!=""){
+                        this.hobbys.push(this.hobby);
+                    }else{
+                        alert("无效爱好，请重试。")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

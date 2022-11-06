@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test08</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app" :style="{fontSize: postFontSize+'px'}">
+		<blog-post @enlarge="enlargef" v-for="post in posts" :post="post"></blog-post>
+	</div>
+	<template id="tmp">
+		<div>
+			<h3>{{post.title}}</h3>
+			<p>{{post.content}}</p>
+			<button @click="big">放大字号</button>
+		</div>
+	</template>
+	<script>
+		Vue.component("blog-post",{
+			props:["post"],
+			template:"#tmp",
+			methods:{
+				big:function () {
+					this.$emit("enlarge",2)
+				}
+			}
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				posts:[
+				{id:1,title:"My journey whth Vue",content:"今天是个好日子"},
+				{id:2,title:"Blogging with Vue",content:"博文文章具体内容"},
+				{id:3,title:"Why Vue is fun",content:"博文文章新的具体内容"}
+				],
+				postFontSize:16
+			},
+			methods:{
+				enlargef:function(value){
+					this.postFontSize+=value
+				}
+			}
+		});
+	</script>
+</body>
+</html>

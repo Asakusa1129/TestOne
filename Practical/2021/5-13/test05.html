@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test05</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<my-movie :img="imgUrl" :name="name" :description="description"></my-movie>
+	</div>
+	<template id="tmp">
+		<div>
+			<img v-bind:src="img">
+			<h2>{{name}}</h2>
+			<p>{{description}}</p>
+		</div>
+	</template>
+	<script>
+		Vue.component("my-movie",{
+			props:["img","name","description"],
+			template:"#tmp"
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				imgUrl:"images/chuanqi.jpg",
+				name:"我是传奇",
+				description:"末世科幻动作电影"
+			}
+		});
+	</script>
+</body>
+</html>

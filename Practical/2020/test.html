@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<script type="text/javascript">
+			window.onload=function(){
+				var back=document.getElementsByTagName("input")[0];
+				back.onclick=function(){
+					history.back();
+				};
+			};
+		</script>
+	</head>
+	<body style="margin: 20px 0 0 10px;">
+		<h2>跳转界面</h2>
+		<input class="layui-btn layui-btn-normal" type="button" value="后退" />
+	</body>
+</html>

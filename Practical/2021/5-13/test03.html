@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test03</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h3>{{title}}</h3>
+		<parent-component></parent-component>
+	</div>
+	<template id="tmp">
+		<h3>{{title}}</h3>
+	</template>
+	<script>
+		Vue.component("parent-component",{
+			template:"#tmp",
+			data:function () {
+				return{
+					title:"我是组件中的title"
+				}
+			}
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				title:"我是vm实例的title"
+			}
+		});
+	</script>
+</body>
+</html>

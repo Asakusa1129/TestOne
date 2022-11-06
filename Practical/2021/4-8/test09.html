@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test09</title>
+	<style type="text/css">
+		#test09{
+			width: 180px;
+			height: 50px;
+			display: flex;
+			text-align: center;
+			line-height: 50px;
+		}
+		#test09 input{
+			width: 80px;
+			height: 40px;
+			font-size: 24px;
+			margin: 10px;
+			border: none;
+			outline: none;
+			background-color: #999;
+			border-radius: 10px;
+		}
+	</style>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#test09",
+				data:{
+					num:0
+				},
+				methods:{
+					remove:function(){
+						this.num--;
+						if(this.num<=0){
+							this.num=0;
+							alert("你已减到极限");
+						}
+					},
+					add:function(){
+						this.num++;
+						if(this.num>=15){
+							this.num=15;
+							alert("你已加到极限");
+						}
+					}
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="test09">
+		<input type="button" value="-" @click="remove">
+		<strong>{{num}}</strong>
+		<input type="button" value="+" @click="add">
+	</div>
+</body>
+</html>

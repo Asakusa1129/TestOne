@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test05</title>
+	<script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <style type="text/css">
+    	*{
+    		list-style: none;
+    	}
+    	#app{
+    		text-align: center;
+    	}
+    	input[type="button"]{
+    		width: 100px;
+    		height: 30px;
+    		border: none;
+    		outline: none;
+    		background-color: red;
+    		margin-top: 20px;
+    		border-radius: 10px;
+    	}
+    	ul>li{
+    		font-family: 宋体;
+    		font-size: 24px;
+    		font-weight: bold;
+    		margin-bottom: 10px;
+    	}
+    </style>
+</head>
+<body>
+	<div id="app">
+		<h1>农历日期查询</h1>
+		<input type="date" v-model="date"><br>
+		<input type="button" value="查询" @click="chaxun()">
+		<ul v-for="i in datelist">
+			<li>阳历:{{i.gregoriandate}}</li>
+			<li>阴历:{{i.tiangandizhiyear}}年{{i.tiangandizhimonth}}月{{i.tiangandizhiday}}日</li>
+			<li>{{i.shengxiao}}年 {{i.lubarmonth}}{{i.lunarday}}</li>
+			<li>节日:{{i.festival}}</li>
+			<li>农历节日:{{i.lunar_festival}}</li>
+			<li>适宜:{{i.fitness}}</li>
+			<li>忌:{{i.taboo}}</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+            el:'#app',
+            data:{
+            	date:'',
+            	datelist:{}
+
+            },
+            methods:{
+                chaxun:function(){
+                    axios.get("http://api.tianapi.com/txapi/lunar/index?key=61dc625d009e93535697a5e4bd884350&date="+this.date).then(
+                    	response=>{
+                    		this.datelist=response.data.newslist;
+                    	},err=>{
+                    		console.log(err);
+                    	}
+                    	);
+                }
+            },
+        });
+	</script>
+</body>
+</html>

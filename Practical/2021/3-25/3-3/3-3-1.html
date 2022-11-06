@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3-3-1</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var mycanvas=document.getElementsByTagName("canvas")[0];
+			var context=mycanvas.getContext("2d");
+			mycanvas.width=400;
+			mycanvas.height=500;
+			mycanvas.style.border="1px blue solid";
+			//线式矩形
+			context.strokeStyle="#0000FF";
+			context.strokeRect(150,50,200,100);
+			//填充式矩形
+			context.fillStyle="pink";
+			context.fillRect(150,200,200,100);
+			//清除
+			context.clearRect(140,120,100,100);
+			context.clearRect(320,270,30,30);
+		};
+	</script>
+</head>
+<body>
+	<canvas>
+		
+	</canvas>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test10</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<my-button>{{value}}</my-button>
+		<my-button></my-button>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component("my-button",{
+			template:"<button><slot>提交</slot></button>"
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				value:"注册"
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test11</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box{
+			width: 360px;
+			margin: auto;
+			text-align: center;
+			background-color: #9966ff;
+		}
+		ul{
+			background-color: pink;
+			width: 100%;
+			display: flex;
+			list-style: none;
+		}
+		ul>li{
+			width: 120px;
+			height: 40px;
+			line-height: 40px;
+		}
+		.box div{
+			height: 200px;
+			line-height: 200px;
+			font-size: 26px;
+			color: white;
+		}
+		li:active{
+			background-color: #9966ff;
+		}
+	</style>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="box">
+			<ul :class="current">
+				<li @click="current='music'">音乐</li>
+				<li @click="current='news'">新闻</li>
+				<li @click="current='videos'">视频</li>
+			</ul>
+			<component :is="current"></component>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				current:"music"
+			},
+			components:{
+				music:{
+					template:"<div>音乐内容</div>"
+				},
+				news:{
+					template:"<div>新闻内容</div>"
+				},
+				videos:{
+					template:"<div>视频内容</div>"
+				}
+			}
+		});
+	</script>
+</body>
+</html>

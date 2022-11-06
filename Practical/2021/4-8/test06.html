@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test06</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#test06",
+				data:{
+					test:"<strong>中国北京</strong>"
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="test06">
+		<p v-html="test"></p>
+		<p v-text="test"></p>
+	</div>
+</body>
+</html>

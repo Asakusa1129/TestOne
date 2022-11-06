@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test08</title>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+			new Vue({
+				el:"#test08",
+				data:{
+					price:20,
+					num:0
+				},
+				methods:{
+					add:function () {
+						this.num++;
+					},
+					remove:function () {
+						this.num--;
+						if(this.num<=0){
+							this.num=0;
+						}
+					}
+				},
+				computed:{
+					total:function(){
+						return this.price*this.num;
+					}
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="test08">
+		<p>单价:{{price}}</p>
+		<p>数量:{{num}}</p>
+		<p>总价:{{total}}</p>
+		<input type="button" value="增加数量" @click="add">
+		<input type="button" value="减少数量" @click="remove">
+	</div>
+</body>
+</html>

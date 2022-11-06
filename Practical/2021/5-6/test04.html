@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test04</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        用户名:<input type="text" v-model="username" placeholder="请输入你的用户名">
+        <br>
+        <input type="button" value="注册" @click="reg()">
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                username:''
+            },
+            methods:{
+                reg:function(){
+                    axios.post("https://autumnfish.cn/api/user/reg",{username:this.username}).then(
+                        response=>{
+                            alert(response.data);
+                        },err=>{
+                            alert(err.data);
+                        }
+                    );
+                }
+            },
+        });
+    </script>
+</body>
+</html>
